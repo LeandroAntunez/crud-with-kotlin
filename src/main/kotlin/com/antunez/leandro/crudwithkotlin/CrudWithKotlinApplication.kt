@@ -7,6 +7,6 @@ import org.springframework.boot.runApplication
 class CrudWithKotlinApplication
 
 fun main(args: Array<String>) {
-	println("Hello World")
-	//runApplication<CrudWithKotlinApplication>(*args)
+	//println("Hello World")
+	runApplication<CrudWithKotlinApplication>(*args)
 }

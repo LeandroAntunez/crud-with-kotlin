@@ -15,20 +15,20 @@ class PersonaController {
     @Autowired
     lateinit var personaServiceAPI: PersonaServiceAPI
 
-    @RequestMapping("/all")
-    fun getAll(): MutableList<Persona> {
+    @GetMapping("/all")
+    fun getAll(): MutableList<Persona>? {
         return personaServiceAPI.all
     }
 
-    @RequestMapping("/save")
+    @PostMapping("/save")
     fun save(@RequestBody persona: Persona): ResponseEntity<Persona> {
-        var obj = personaServiceAPI.save(persona)
+        personaServiceAPI.save(persona)
         return ResponseEntity<Persona>(persona, HttpStatus.OK)
     }
 
-    @RequestMapping("/delete/{id}")
+    @GetMapping("/delete/{id}")
     fun delete(@PathVariable id: Long): ResponseEntity<Persona> {
-        val persona = personaServiceAPI.get(id)
+        val persona = personaServiceAPI[id]
         if (persona != null) {
             personaServiceAPI.delete(id)
         } else {

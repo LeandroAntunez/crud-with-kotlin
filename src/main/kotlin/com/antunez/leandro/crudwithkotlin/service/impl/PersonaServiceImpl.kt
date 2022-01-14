@@ -9,12 +9,13 @@ import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Service
 
 @Service
-class PersonaServiceImpl: GenericServiceImpl<Persona, Long>(), PersonaServiceAPI {
+class PersonaServiceImpl : GenericServiceImpl<Persona, Long>(), PersonaServiceAPI {
 
     @Autowired
-    lateinit var personaRepository: PersonaRepository;
+    lateinit var personaRepository: PersonaRepository
 
-    override fun getDao(): CrudRepository<Persona, Long> {
-      return personaRepository;
+    override fun dao(): CrudRepository<Persona, Long> {
+        return personaRepository
     }
+
 }

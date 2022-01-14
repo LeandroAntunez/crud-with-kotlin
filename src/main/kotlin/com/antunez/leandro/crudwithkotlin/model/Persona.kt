@@ -5,15 +5,13 @@ import javax.persistence.*
 @Entity(name = "persona")
 data class Persona(
     @Id
-    val id: Long,
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long = 0,
     @Column
-    val nombre: String,
+    val nombre: String = "",
     @Column
-    val apellido: String,
+    val apellido: String = "",
     @Column
-    val direccion: String,
+    val direccion: String = "",
     @Column
-    val telefono: String)
-{
-
-}
+    val telefono: String = "")
